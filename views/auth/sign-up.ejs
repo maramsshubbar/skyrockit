@@ -7,6 +7,7 @@
   </head>
   <body>
     <h1>Create a new account!</h1>
+<%- include('../partials/_navbar.ejs') %>
     <form action="/auth/sign-up" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />

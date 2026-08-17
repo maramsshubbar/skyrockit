@@ -8,7 +8,7 @@
 
   <body>
     <h1>Sign in to your account!</h1>
-
+<%- include('../partials/_navbar.ejs') %>
     <form action="/auth/sign-in" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />

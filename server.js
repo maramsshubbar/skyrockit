@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 console.log("SESSION_SECRET exists:", !!process.env.SESSION_SECRET);
+
 const express = require("express");
 const app = express();
 
@@ -10,12 +11,18 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const { MongoStore } = require("connect-mongo");
+
 // Controllers
 const authCtrl = require("./controllers/authCtrl");
+const applicationsController = require("./controllers/applications.js");
+
+// Middleware
 const isSignedIn = require("./middleware/is-signed-in.js");
-// Set the port from environment variable or default to 3000
-const port = process.env.PORT ? process.env.PORT : "3000";
 const passUserToView = require("./middleware/pass-user-to-view.js");
+
+// Set the port
+const port = process.env.PORT ? process.env.PORT : "3000";
+
 // MongoDB
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -39,7 +46,6 @@ app.use(
   })
 );
 
-
 app.use(passUserToView);
 
 // EJS
@@ -59,13 +65,20 @@ app.post("/auth/sign-out", authCtrl.signout);
 
 // Home
 app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    user: req.session.user,
-  });
+  if (req.session.user) {
+    return res.redirect(`/users/${req.session.user._id}/applications`);
+  }
+
+  res.render("index.ejs");
 });
 
+// Protect application routes
+app.use(isSignedIn);
 
+// Applications
+app.use("/users/:userId/applications", applicationsController);
 
+// Start server
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });

@@ -1,0 +1,13 @@
+<nav>
+  <% if(user) { %>
+    <a href="/users/<%= user._id %>/applications">Your Apps</a>
+
+    <form action="/auth/sign-out" method="POST">
+      <button type="submit">Sign Out</button>
+    </form>
+
+  <% } else { %>
+    <a href="/auth/sign-in">Sign In</a>
+    <a href="/auth/sign-up">Sign Up</a>
+  <% } %>
+</nav>
