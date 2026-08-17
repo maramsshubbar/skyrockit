@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Add a New App</title>
   </head>
 
   <body>
-    <%- include("../partials/_navbar.ejs") %>
+  <%- include("../partials/_navbar.ejs") %>
 
+  <div class="new-body">
     <h1>Add a New App</h1>
 
-<form action="/users/<%= user._id %>/applications" method="POST">      <label for="company">Company:</label>
+    <form action="/users/<%= user._id %>/applications" method="POST">
+      <label for="company">Company:</label>
       <input type="text" name="company" id="company" />
 
       <label for="title">Title:</label>
@@ -34,5 +37,6 @@
 
       <button type="submit">Add Application</button>
     </form>
-  </body>
+  </div>
+</body>
 </html>

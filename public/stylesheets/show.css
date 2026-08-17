@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.show-body {
+  width: 90%;
+  max-width: 1000px;
+  margin: 60px auto;
+}
+
+.show-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.show-header h1 {
+  color: #1c2e5b;
+  font-size: 2.8rem;
+  margin: 0;
+}
+
+.show-sidebar {
+  min-width: 250px;
+}
+
+.show-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.show-actions a {
+  background-color: #4b598e;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.show-actions a:hover {
+  background-color: #1c2e5b;
+}
+
+.show-actions form {
+  margin: 0;
+}
+
+.show-actions button {
+  background-color: #ce4866;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.show-actions button:hover {
+  background-color: #ff5378;
+}
+
+.show-sidebar p {
+  color: #ce4866;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.show-notes-container {
+  margin-top: 50px;
+}
+
+.show-notes-container > a {
+  color: #4b598e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.show-notes-container > a:hover {
+  color: #ce4866;
+}
+
+.show-notes {
+  background-color: #f6e7e7;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.show-notes h2 {
+  color: #1c2e5b;
+  margin-top: 0;
+}
+
+.show-notes p {
+  color: #1c2e5b;
+  line-height: 1.6;
+}

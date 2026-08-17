@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const { MongoStore } = require("connect-mongo");
-
+const path = require("path");
 // Controllers
 const authCtrl = require("./controllers/authCtrl");
 const applicationsController = require("./controllers/applications.js");
@@ -52,7 +52,8 @@ app.use(passUserToView);
 app.set("view engine", "ejs");
 
 // Public app
-app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Auth Routes
 app.get("/auth/sign-up", authCtrl.signup);

@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Editing <%= application.title %></title>
   </head>
 
-  <body>
-    <%- include("../partials/_navbar.ejs") %>
+ <body>
+  <%- include("../partials/_navbar.ejs") %>
 
+  <div class="edit-body">
     <h1>Edit <%= application.title %> at <%= application.company %></h1>
 
     <form
@@ -47,19 +49,15 @@
         <option value="interested" <%= application.status === "interested" ? "selected" : "" %>>
           Interested
         </option>
-
         <option value="applied" <%= application.status === "applied" ? "selected" : "" %>>
           Applied
         </option>
-
         <option value="interviewing" <%= application.status === "interviewing" ? "selected" : "" %>>
           Interviewing
         </option>
-
         <option value="rejected" <%= application.status === "rejected" ? "selected" : "" %>>
           Rejected
         </option>
-
         <option value="accepted" <%= application.status === "accepted" ? "selected" : "" %>>
           Accepted
         </option>
@@ -67,5 +65,6 @@
 
       <button type="submit">Update Application</button>
     </form>
-  </body>
+  </div>
+</body>
 </html>
