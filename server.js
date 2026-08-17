@@ -59,12 +59,11 @@ app.post("/auth/sign-out", authCtrl.signout);
 
 // Home
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", {
+    user: req.session.user,
+  });
 });
 
-app.get("/vip-lounge", isSignedIn, (req, res) => {
-  res.send(`Welcome to the party ${req.session.user.username}.`);
-});
 
 
 app.listen(port, () => {
